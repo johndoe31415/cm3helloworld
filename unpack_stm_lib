@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+LIB_NAME="en.stsw-stm32054.zip"
+if [ ! -f "$LIB_NAME" ]; then
+	echo "$LIB_NAME was not found."
+	exit 1
+fi
+
+cd ext-st
+rm -fr STM32F10x_StdPeriph_Lib_V3.5.0
+rm -f include include-cmsis include-cmsis-dev
+unzip "../${LIB_NAME}"
+ln -sf STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc include
+ln -sf STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/CoreSupport include-cmsis
+ln -sf STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x include-cmsis-dev
+sed -i 's/^static __INLINE void __/#define __/' include-cmsis/core_cm3.h

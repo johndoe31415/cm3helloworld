@@ -1,0 +1,3 @@
+# vim:set syntax=sh ts=8 tw=0:
+PB1	OUT	DebugLED	init
+#PA8	OUT	MCO		init,af=MCO,speed=50

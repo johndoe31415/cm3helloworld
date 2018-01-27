@@ -1,0 +1,11 @@
+.*.swp
+helloworld
+helloworld.bin
+*.o
+
+en.stsw-stm32054.zip
+ext-st/STM32F10x_StdPeriph_Lib_V3.5.0/
+ext-st/include
+ext-st/include-cmsis
+ext-st/include-cmsis-dev
+ext-st/stdperiph.a
